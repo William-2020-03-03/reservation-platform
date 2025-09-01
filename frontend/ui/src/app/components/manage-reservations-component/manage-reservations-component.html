@@ -1,0 +1,20 @@
+<div class="container mx-auto p-4">
+      <h1 class="text-2xl font-bold mb-4">预定管理</h1>
+      <ul class="list-disc pl-5 mb-4">
+        <li>预定 #001 - 2025-09-01 18:00 (待审核)</li>
+        <li>预定 #002 - 2025-09-02 19:00 (已确认)</li>
+        <li>预定 #003 - 2025-09-03 20:00 (已取消)</li>
+      </ul>
+      <button
+        class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 mr-2"
+        (click)="goBack()"
+      >
+        返回
+      </button>
+      <button
+        class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+        (click)="logout()"
+      >
+        退出登录
+      </button>
+</div>
