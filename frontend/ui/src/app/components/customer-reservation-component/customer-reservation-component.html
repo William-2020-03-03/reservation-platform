@@ -1,32 +1,47 @@
 <div class="p-4">
-  <h2 class="text-2xl font-bold mb-4">客户预约</h2>
+  <h2 class="text-2xl font-bold mb-4">Customer role - testing for reservation</h2>
 
-  <!-- 新增按钮 -->
-  <button class="bg-blue-500 text-white px-4 py-2 rounded mb-4" (click)="showForm = true">
-    新增预约
-  </button>
+  <button class="bg-blue-500 text-white px-4 py-2 rounded mb-4" (click)="showForm = true">新增预约</button>
 
   <!-- 预约列表 -->
   <ul class="space-y-2">
-    <li *ngFor="let r of reservations" class="border p-3 rounded flex justify-between items-center"
-      [class.opacity-60]="r.status === 'canceled'">
+    <li *ngFor="let r of reservations" class="border p-3 rounded flex justify-between items-center" [class.opacity-60]="r.status === 'canceled'" class="margin-top-bottom">
       <div>
-        <p><strong>{{ r.customerName }}</strong> ({{ r.phone }})</p>
-        <p>{{ r.date | date:'yyyy-MM-dd' }} {{ r.timeSlot }} - 人数: {{ r.partySize }}</p>
-        <p *ngIf="r.notes">备注: {{ r.notes }}</p>
-        <!-- 状态标签 -->
-        <span class="px-2 py-1 text-xs rounded" [ngClass]="{
-                'bg-green-200 text-green-800': r.status === 'active',
-                'bg-gray-300 text-gray-600': r.status === 'canceled'
-              }">
-          {{ r.status === 'active' ? '已预约' : '已取消' }}
-        </span>
+        <span>姓名 : </span>
+        <span>{{ r.customerName }}</span>
       </div>
-      <!-- 只有 active 才能取消 -->
-      <button *ngIf="r.status === 'active'" class="bg-red-500 text-white px-3 py-1 rounded"
-        (click)="cancelReservation(r._id!)">
-        取消预约
-      </button>
+
+      <div>
+        <span>Phone: </span>
+        <span>{{ r.phone }}</span>
+      </div>
+
+      <div>
+        <span>日期: </span>
+        <span>{{ r.date | date:'yyyy-MM-dd' }}</span>
+      </div>
+
+      <div>
+        <span>时间: </span>
+        <span>{{ r.timeSlot }}</span>
+      </div>
+
+      <div>
+        <span>人数: </span>
+        <span>{{ r.partySize }}</span>
+      </div>
+
+      <div>
+        <span>备注: </span>
+        <span>{{ r.notes }}</span>
+      </div>
+
+      <div>
+        <span>状态：</span>
+        <span>{{ r.status === 'active' ? '已预约' : '已取消' }}</span>          
+      </div>
+
+      <button *ngIf="r.status === 'active'" class="bg-red-500 text-white px-3 py-1 rounded" (click)="cancelReservation(r._id!)">取消预约</button>
     </li>
   </ul>
 
@@ -35,41 +50,41 @@
     <div class="bg-white p-6 rounded-lg w-96">
       <h3 class="text-xl font-bold mb-4">新增预约</h3>
       <form (ngSubmit)="addReservation()">
-        <div class="mb-2">
+        <div class="mb-2" class="margin-top-bottom">
           <label class="block">姓名</label>
           <input [(ngModel)]="newReservation.customerName" name="customerName" required
             class="border w-full p-2 rounded" />
         </div>
-        <div class="mb-2">
+        <div class="mb-2" class="margin-top-bottom">
           <label class="block">电话</label>
           <input [(ngModel)]="newReservation.phone" name="phone" required class="border w-full p-2 rounded" />
         </div>
-        <div class="mb-2">
+        <div class="mb-2" class="margin-top-bottom">
           <label class="block">邮箱</label>
           <input [(ngModel)]="newReservation.email" name="email" type="email" class="border w-full p-2 rounded" />
         </div>
-        <div class="mb-2">
+        <div class="mb-2" class="margin-top-bottom">
           <label class="block">日期</label>
           <input [(ngModel)]="newReservation.date" name="date" type="date" required class="border w-full p-2 rounded" />
         </div>
-        <div class="mb-2">
+        <div class="mb-2" class="margin-top-bottom">
           <label class="block">时间段</label>
           <select [(ngModel)]="newReservation.timeSlot" name="timeSlot" required class="border w-full p-2 rounded">
             <option value="" disabled selected>请选择时间段</option>
             <option *ngFor="let slot of timeSlots" [value]="slot">{{ slot }}</option>
           </select>
         </div>
-        <div class="mb-2">
+        <div class="mb-2" class="margin-top-bottom">
           <label class="block">人数</label>
           <input [(ngModel)]="newReservation.partySize" name="partySize" type="number" required min="1"
             class="border w-full p-2 rounded" />
         </div>
-        <div class="mb-2">
+        <div class="mb-2" class="margin-top-bottom">
           <label class="block">备注</label>
           <textarea [(ngModel)]="newReservation.notes" name="notes" class="border w-full p-2 rounded"></textarea>
         </div>
 
-        <div class="flex justify-end space-x-2 mt-4">
+        <div class="flex justify-end space-x-2 mt-4" class="margin-top-bottom">
           <button type="button" class="px-4 py-2 border rounded" (click)="showForm = false">取消</button>
           <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">保存</button>
         </div>

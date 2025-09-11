@@ -1,4 +1,6 @@
 <div>
+    <h1>Employee role for testing (to manage customer reservations)</h1>
+
     <form (ngSubmit)="loadReservations()">
     <input [(ngModel)]="filters.name" name="name" placeholder="姓名">
     <input [(ngModel)]="filters.email" name="email" placeholder="邮箱">
@@ -30,8 +32,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let res of reservations" class="border">
+          <tr *ngFor="let res of reservations" class="border" class="margin-top-bottom">
+            <div class="margin-top-bottom">
             <td class="border p-2">{{ res.customerName }}</td>
+            </div>
+
             <td class="border p-2">{{ res.phone }}</td>
             <td class="border p-2">{{ res.email }}</td>
             <td class="border p-2">{{ res.date }}</td>

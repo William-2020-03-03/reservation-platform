@@ -1,7 +1,15 @@
 <div>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <input formControlName="email" placeholder="Email" type="email" />
-      <input formControlName="password" placeholder="Password" type="password" />
-      <button type="submit">Login</button>
+      <div>
+        <input formControlName="email" placeholder="Email" type="email" />
+      </div>
+
+      <div>
+        <input formControlName="password" placeholder="Password" type="password" />
+      </div>
+
+      <div>
+        <button type="submit">Login</button>
+      </div>
     </form>
 </div>

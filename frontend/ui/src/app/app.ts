@@ -24,7 +24,7 @@ export class App {
 
   logout() {
     this.auth.logout();
-     this.router.navigate(['/employee/reservations']);
+     this.router.navigate(['/login']);
     // location.reload(); // 或者使用 Router 导航到 login
   }
 }
