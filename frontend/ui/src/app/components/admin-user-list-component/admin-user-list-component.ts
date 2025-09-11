@@ -19,10 +19,14 @@ export class AdminUserListComponent implements OnInit, OnDestroy {
   users: RegisterUser[] = [];
   query = '';
 
+  constructor () {
+    console.log("...amdin user list component...");
+  }
+
   ngOnInit() {
     this.loadUsers();
 
-        // remove shaking-debounce
+    // remove shaking-debounce
     this.searchSubject
       .pipe(
         debounceTime(400),           // dely 400ms

@@ -15,6 +15,7 @@ export class EmployeeReservationsComponent {
   filters = { name: '', email: '', phone: '', status: '', startDate: '', endDate: '' };
 
   constructor(private emReservationService: EmployeeReservationService) {
+     console.log("...employee reservations component...");
     this.loadReservations();
   }
 
@@ -23,7 +24,6 @@ export class EmployeeReservationsComponent {
       this.reservations = data;
     });
   }
-
 
   updateStatus(id: string, newStatus: string) {
     this.emReservationService.updateStatus(id, newStatus).subscribe(() => {

@@ -1,18 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminDashboardComponent } from '../../components/admin-dashboard-component/admin-dashboard-component';
-import { ManageReservationsComponent } from '../../components/manage-reservations-component/manage-reservations-component';
+import { AdminUserListComponent } from '../../components/admin-user-list-component/admin-user-list-component';
 
 export const adminRoutes: Routes = [
   {
     path: '',
-    component: AdminDashboardComponent,
+    component: AdminUserListComponent,
     title: 'Admin page'
-  },
-  {
-    path: 'managereservations',
-    component: ManageReservationsComponent,
   },
 ];
 

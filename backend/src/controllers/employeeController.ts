@@ -28,8 +28,6 @@ export const getReservations = async (req: AuthRequest, res: Response) => {
         if (phone) filter.phone = { $regex: phone, $options: 'i' };
         if (status) filter.status = status;
 
-        console.log(filter);
-
         const reservations = await Reservation.find(filter).sort({ date: 1 });
         res.json(reservations);
     } catch (err: any) {

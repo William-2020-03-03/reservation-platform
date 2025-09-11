@@ -18,13 +18,6 @@ export const routes: Routes = [
     },
   },
   {
-    path: 'amdin/users',
-    canActivate: [authGuard, roleGuard],
-    loadComponent: () => {
-      return import('./components/admin-user-list-component/admin-user-list-component').then(m => m.AdminUserListComponent);
-    },
-  },
-  {
     path: 'reservation',
     canActivate: [authGuard, roleGuard],
     data: { role: 'customer' },
@@ -40,7 +33,7 @@ export const routes: Routes = [
     },
   },
   {
-    path: 'admin-dashboard',
+    path: 'amdin/users',
     canActivate: [authGuard, roleGuard],
     data: { role: 'admin' },
     loadChildren: () => import('./modules/admin/admin-module').then(m => m.AdminModule)
