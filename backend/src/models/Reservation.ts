@@ -12,6 +12,7 @@ export interface IReservation extends Document {
     notes?: string;
     createdAt: Date;
     status: 'active' | 'canceled'; 
+    updatedAt: Date;
 }
 
 const ReservationSchema = new Schema<IReservation>({
@@ -24,7 +25,8 @@ const ReservationSchema = new Schema<IReservation>({
         partySize: { type: Number, required: true },
         notes: { type: String },
         createdAt: { type: Date, default: Date.now },
-        status: { type: String, enum: ['active', 'canceled'], default: 'active' }
+        status: { type: String, enum: ['active', 'canceled'], default: 'active' },
+        updatedAt: { type: Date, default: Date.now }
     },
     {
         timestamps: true

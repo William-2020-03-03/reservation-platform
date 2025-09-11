@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth-service';
 import { Router } from '@angular/router';
 
@@ -38,11 +38,11 @@ export class LoginPage {
         } else if (role === 'customer') {
           this.router.navigate(['/reservation']);
         } else if (role === 'employee') {
-          this.router.navigate(['/admin-dashboard']);
+          this.router.navigate(['/employee/reservations']);
         }
 
       },
-      error: err => console.error(err.error.message || 'Login failed')
+      error: err => console.error('*** -Login failed')
     });
   }
 }

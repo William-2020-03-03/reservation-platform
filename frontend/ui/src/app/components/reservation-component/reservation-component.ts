@@ -19,9 +19,10 @@ export class ReservationComponent {
     private reservationService = inject(ReservationService);
 
  reservations: Reservation[] = [];
-   showForm = false;
+  
+ showForm = false;
 
-     timeSlots = [
+  timeSlots = [
     '18:00–19:30',
     '19:30–21:00',
     '21:00–22:30'

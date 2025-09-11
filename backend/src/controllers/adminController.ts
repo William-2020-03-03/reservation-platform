@@ -1,6 +1,6 @@
 import type { Response } from 'express';
 import type { AuthRequest } from '../middleware/auth.js';
-import { User } from '../models/User.ts';
+import { User } from '../models/User.js';
 
 export const getAllRegisterUsers = async (req: AuthRequest, res: Response) => {
     try {
@@ -21,8 +21,6 @@ export const getAllRegisterUsers = async (req: AuthRequest, res: Response) => {
         res.status(500).json({ message: 'Internal server error' });
     }
 };
-
-
 
 export const updateUserRole = async (req: AuthRequest, res: Response) => {
     try {

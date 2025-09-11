@@ -1,7 +1,7 @@
 import type { Request, Response } from 'express';
 import { Reservation } from '../models/Reservation.js';
 import type { AuthRequest } from '../middleware/auth.js';
-import { User } from '../models/User.ts';
+import { User } from '../models/User.js';
 
 export const createReservation = async (req: AuthRequest, res: Response) => {
     try {

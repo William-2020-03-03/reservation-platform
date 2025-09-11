@@ -32,8 +32,8 @@ export class ReservationService {
     return this.http.post<Reservation>(`${BASE_RESERVATION_API_URL}`, reservation);
   }
 
-    cancelReservation(id: string): Observable<Reservation> {
+  cancelReservation(id: string): Observable<Reservation> {
     return this.http.patch<Reservation>(`${BASE_RESERVATION_API_URL}/${id}`, { status: 'canceled' });
   }
-  
+
 }

@@ -32,6 +32,14 @@ export const routes: Routes = [
       import('./components/reservation-component/reservation-component').then(m => m.ReservationComponent),
   },
   {
+    path: 'employee/reservations',
+    canActivate: [authGuard, roleGuard],
+    data: { role: 'employee' },
+    loadComponent: () => {
+      return import('./components/employee-reservations-component/employee-reservations-component').then(m => m.EmployeeReservationsComponent);
+    },
+  },
+  {
     path: 'admin-dashboard',
     canActivate: [authGuard, roleGuard],
     data: { role: 'admin' },

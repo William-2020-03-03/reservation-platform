@@ -1,0 +1,52 @@
+<div>
+    <form (ngSubmit)="loadReservations()">
+    <input [(ngModel)]="filters.name" name="name" placeholder="姓名">
+    <input [(ngModel)]="filters.email" name="email" placeholder="邮箱">
+    <input [(ngModel)]="filters.phone" name="phone" placeholder="手机号">
+    <input type="date" [(ngModel)]="filters.startDate" name="startDate">
+    <input type="date" [(ngModel)]="filters.endDate" name="endDate">
+    <select [(ngModel)]="filters.status" name="status">
+        <option value="">全部</option>
+        <option value="active">已激活</option>
+        <option value="approved">已批准</option>
+        <option value="canceled">已取消</option>
+        <option value="completed">已完成</option>
+    </select>
+    <button type="submit">查询</button>
+    </form>
+
+    <!-- 预约列表 -->
+      <table class="w-full border-collapse border border-gray-300">
+        <thead>
+          <tr class="bg-gray-100">
+            <th class="border p-2">姓名</th>
+            <th class="border p-2">手机号</th>
+            <th class="border p-2">邮箱</th>
+            <th class="border p-2">日期</th>
+            <th class="border p-2">时间</th>
+            <th class="border p-2">人数</th>
+            <th class="border p-2">状态</th>
+            <th class="border p-2">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let res of reservations" class="border">
+            <td class="border p-2">{{ res.customerName }}</td>
+            <td class="border p-2">{{ res.phone }}</td>
+            <td class="border p-2">{{ res.email }}</td>
+            <td class="border p-2">{{ res.date }}</td>
+            <td class="border p-2">{{ res.timeSlot }}</td>
+            <td class="border p-2">{{ res.partySize }}</td>
+            <td class="border p-2">{{ res.status }}</td>
+            <td class="border p-2">
+              <select [(ngModel)]="res.status" (change)="updateStatus(res._id!, res.status!)">
+                <option value="active">Active</option>
+                <option value="canceled">Canceled</option>
+                <option value="approved">Approved</option>
+                <option value="completed">Completed</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

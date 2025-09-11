@@ -52,7 +52,6 @@ export class AuthService {
     return payload.exp > now;
   }
 
-
   register(username: string, email: string, password: string, role?: string): Observable<{ message: string }> {
     return this.http.post<{ message: string }>(`${BASE_AUTH_API_URL}/register`, {
       name: username,
@@ -66,7 +65,6 @@ export class AuthService {
       .post<{ token: string }>(`${BASE_AUTH_API_URL}/login`, { email, password })
       .pipe(
         tap(res => {
-          console.log(`Login token is: ${res.token}`);
           localStorage.setItem(TOKEN_KEY, res.token);
         }),
         map(res => res.token)
