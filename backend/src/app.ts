@@ -1,6 +1,6 @@
 import express from 'express';
 import authRoutes from './routes/authRoutes.js';
-import reservationRoutes from './routes/reservationRoutes.js';
+import customerRoutes from './routes/customerRoutes.js';
 // import { authenticate } from './middleware/auth.js';
 // import type { Request, Response } from 'express';
 import cors from 'cors';
@@ -21,7 +21,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/employee/reservations', employeeRoutes);
-app.use('/api/reservations', reservationRoutes);
+app.use('/api/customer/reservation', customerRoutes);
 
 // app.get('/api/protected', authenticate, (req: Request, res: Response) => {
 //     res.json({ message: 'You are authenticated!' })

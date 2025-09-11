@@ -19,7 +19,7 @@ export class AdminUserListComponent implements OnInit, OnDestroy {
   users: RegisterUser[] = [];
   query = '';
 
-  constructor () {
+  constructor() {
     console.log("...amdin user list component...");
   }
 
@@ -40,7 +40,7 @@ export class AdminUserListComponent implements OnInit, OnDestroy {
 
   private loadUsers(): void {
     this.adminService.getUsers(this.query).subscribe(res => {
-       this.users = res;
+      this.users = res;
     });
   }
 
@@ -58,12 +58,12 @@ export class AdminUserListComponent implements OnInit, OnDestroy {
       return;
     }
 
-     this.adminService.updateRole(user._id, user.role).subscribe(() => {
+    this.adminService.updateRole(user._id, user.role).subscribe(() => {
       console.log('...update role successfully!');
-     });
+    });
   }
 
-    onReset(): void {
+  onReset(): void {
     this.query = '';
     this.loadUsers();
   }

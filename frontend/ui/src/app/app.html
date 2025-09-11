@@ -1,7 +1,7 @@
     <nav>
       <a routerLink="/login" *ngIf="!isAuthenticated">登录</a>
       <a routerLink="/register" *ngIf="!isAuthenticated">注册</a>
-      <a routerLink="/reservation" *ngIf="isAuthenticated && role === 'customer'">预约</a>
+      <!-- <a routerLink="/customer/reservation" *ngIf="isAuthenticated && role === 'customer'">预约</a> -->
       <a routerLink="/admin" *ngIf="isAuthenticated && role === 'admin'">管理员面板</a>
       <button (click)="logout()" *ngIf="isAuthenticated">登出</button>
     </nav>

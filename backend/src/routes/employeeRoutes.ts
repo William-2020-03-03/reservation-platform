@@ -1,6 +1,6 @@
 import express from 'express';
 import { authenticate, authorize } from '../middleware/auth.js';
-import { getReservations, updateReservationStatus } from '../controllers/employeeController.ts';
+import { getReservations, updateReservationStatus } from '../controllers/employeeController.js';
 
 const router = express.Router();
 router.use(authenticate);

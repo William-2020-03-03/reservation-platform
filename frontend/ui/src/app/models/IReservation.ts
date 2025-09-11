@@ -1,11 +1,13 @@
-export interface IReservation {
-  _id: string;
-  userId: string; // 对应 IUser._id
-  resourceId: string; // 可扩展为房间、座位等
-  startTime: string; // ISO 日期时间
-  endTime: string;
-  status: 'pending' | 'confirmed' | 'cancelled';
+export interface Reservation {
+  _id?: string;
+  customerId?: string;
+  customerName: string;
+  phone: string;
+  email?: string;
+  date: string;
+  timeSlot: string;
+  partySize: number;
   notes?: string;
-  createdAt: string;
-  updatedAt?: string;
+  status?: 'active' | 'canceled' | 'completed' | 'approved';
+  createdAt?: string;
 }

@@ -1,5 +1,5 @@
 import express from 'express';
-import { createReservation, getReservationById, getReservations, updateReservation, deleteReservation, patchReservation, getReservationByUserId } from '../controllers/reservationController.js';
+import { createReservation, getReservationById, getReservations, updateReservation, deleteReservation, patchReservation, getReservationByUserId } from '../controllers/customerController.js';
 import { authenticate, authorize } from '../middleware/auth.js';
 
 const router = express.Router();

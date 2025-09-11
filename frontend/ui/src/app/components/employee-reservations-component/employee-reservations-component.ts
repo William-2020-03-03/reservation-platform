@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Reservation } from '../../services/reservation-service';
 import { EmployeeReservationService } from '../../services/employee-reservation-service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Reservation } from '../../models/IReservation';
 
 @Component({
   selector: 'app-employee-reservations-component',

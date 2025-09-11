@@ -18,11 +18,11 @@ export const routes: Routes = [
     },
   },
   {
-    path: 'reservation',
+    path: 'customer/reservation',
     canActivate: [authGuard, roleGuard],
     data: { role: 'customer' },
     loadComponent: () =>
-      import('./components/reservation-component/reservation-component').then(m => m.ReservationComponent),
+      import('./components/customer-reservation-component/customer-reservation-component').then(m => m.CustomerReservationComponent),
   },
   {
     path: 'employee/reservations',

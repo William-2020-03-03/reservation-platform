@@ -1,7 +1,6 @@
-import type { Request, Response } from 'express';
+import type { Response } from 'express';
 import { Reservation } from '../models/Reservation.js';
 import type { AuthRequest } from '../middleware/auth.js';
-import { User } from '../models/User.js';
 
 export const createReservation = async (req: AuthRequest, res: Response) => {
     try {
@@ -18,7 +17,6 @@ export const createReservation = async (req: AuthRequest, res: Response) => {
         })
     }
 };
-
 
 export const getReservations = async (req: AuthRequest, res: Response) => {
     try {
@@ -108,7 +106,6 @@ export const patchReservation = async (req: AuthRequest, res: Response) => {
         res.status(500).json({ error: 'Canceled reservation failed.' });
     }
 };
-
 
 // useless currently
 export const deleteReservation = async (req: AuthRequest, res: Response) => {

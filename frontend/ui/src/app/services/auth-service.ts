@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { delay, map, Observable, of, pipe, tap } from 'rxjs';
-import { IUser } from '../models/IUser';
 import { Router } from '@angular/router';
 import { BASE_AUTH_API_URL, TOKEN_KEY } from '../const';
 
@@ -11,7 +10,6 @@ import { BASE_AUTH_API_URL, TOKEN_KEY } from '../const';
 export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { }
-
 
   // JWT 解码（Base64 解码 payload）
   private decodeToken(token: string): any | null {

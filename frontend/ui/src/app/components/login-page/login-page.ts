@@ -36,7 +36,7 @@ export class LoginPage {
         if(role === 'admin') {
           this.router.navigate(['/amdin/users']);
         } else if (role === 'customer') {
-          this.router.navigate(['/reservation']);
+          this.router.navigate(['/customer/reservation']);
         } else if (role === 'employee') {
           this.router.navigate(['/employee/reservations']);
         }
