@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { AuthService } from './services/auth-service';
 import { CommonModule } from '@angular/common';
 
@@ -10,9 +10,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('ui');
+  // protected readonly title = signal('ui');
 
   private auth = inject(AuthService);
+  private router = inject(Router);
 
   get isAuthenticated() {
     return this.auth.isAuthenticated();
@@ -23,6 +24,7 @@ export class App {
 
   logout() {
     this.auth.logout();
-    location.reload(); // 或者使用 Router 导航到 login
+     this.router.navigate(['/employee/reservations']);
+    // location.reload(); // 或者使用 Router 导航到 login
   }
 }

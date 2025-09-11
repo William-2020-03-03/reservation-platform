@@ -8,6 +8,5 @@ router.use(authenticate);
 router.patch('/:id',  authorize(['employee']), updateReservationStatus);
 router.get('/', authorize(['employee']), getReservations);
 
-
 export default router;
 
