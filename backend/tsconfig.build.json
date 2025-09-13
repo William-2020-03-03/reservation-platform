@@ -5,5 +5,8 @@
     "rootDir": "./src",
     "allowImportingTsExtensions": false,
     "noEmit": false,
+    "sourceMap": false,
+    "declaration": false,
+    "declarationMap": false
   }
 }

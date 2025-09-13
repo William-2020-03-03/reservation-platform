@@ -9,12 +9,18 @@ import employeeRoutes from './routes/employeeRoutes.js';
 
 const app = express();
 
-// app.use(cors());
+
+const isProduction = process.env.NODE_ENV === 'production';
+if (!isProduction) {
 app.use(cors({
-  origin: 'http://localhost:4300',
+  origin: 'http://localhost',
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+}
+
+// app.use(cors());
 
 
 app.use(express.json());

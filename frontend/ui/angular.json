@@ -35,6 +35,7 @@
           },
           "configurations": {
             "production": {
+              "outputPath": "dist",
               "budgets": [
                 {
                   "type": "initial",
@@ -50,6 +51,7 @@
               "outputHashing": "all"
             },
             "development": {
+              "outputPath": "dist/dev",
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
