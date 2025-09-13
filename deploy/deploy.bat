@@ -1,11 +1,8 @@
 @echo off
 cd /d %~dp0
 
-
-
-
-set FRONTEND_DIR=C:\restaurant-reservation-system\frontend\ui
-set BACKEND_DIR=C:\restaurant-reservation-system\backend
+set FRONTEND_DIR=C:\reservation-platform\frontend\ui
+set BACKEND_DIR=C:\reservation-platform\backend
 
 set FRONTEND_PUBLISH_DIR=C:\nginx\html
 set BACKEND_PUBLISH_DIR=C:\pm2-backend-published
