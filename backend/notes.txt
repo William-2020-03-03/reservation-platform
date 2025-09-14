@@ -1,0 +1,8 @@
+在 .dockerignore 里加上 .env，防止 COPY . . 把它带进镜像
+
+在 docker-compose.yml 里使用 env_file
+
+
+// 生产环境直接使用 process.env
+console.log('Mongo URI:', process.env.MONGO_URI);
+console.log('JWT Secret:', process.env.JWT_SECRET);

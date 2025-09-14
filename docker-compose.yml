@@ -1,0 +1,75 @@
+version: "3.8"
+
+services:
+  mongo:
+    image: mongo:6
+    container_name: reservation-mongo
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_DATABASE=reservation
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - reservation-net
+    healthcheck:
+      test: CMD-SHELL "mongo --eval 'db.adminCommand(\"ping\")' || exit 1"
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: reservation-backend
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      mongo:
+        condition: service_healthy
+    ports:
+      - "5000:5000"
+    networks:
+      - reservation-net
+
+  frontend-builder:
+    build:
+      context: ./frontend/ui
+      dockerfile: Dockerfile
+    container_name: reservation-frontend-builder
+    volumes:
+      - frontend-dist:/app/dist
+    networks:
+      - reservation-net
+    restart: "no"
+    command: "true" 
+
+  nginx:   
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: reservation-nginx
+    restart: unless-stopped
+    depends_on:
+      - backend
+      - frontend-builder
+    volumes:
+      - frontend-dist:/usr/share/nginx/html:ro  
+    ports:
+      - "80:80"
+    networks:
+      - reservation-net
+
+volumes:
+  mongo-data:
+  frontend-dist:
+
+networks:
+  reservation-net:
+    driver: bridge           

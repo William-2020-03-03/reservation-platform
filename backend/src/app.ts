@@ -13,7 +13,7 @@ const app = express();
 const isProduction = process.env.NODE_ENV === 'production';
 if (!isProduction) {
 app.use(cors({
-  origin: 'http://localhost',
+  origin: 'http://localhost:4200',
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
