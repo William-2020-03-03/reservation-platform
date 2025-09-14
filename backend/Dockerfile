@@ -1,4 +1,4 @@
-FROM node:22.19.0-bullseye as builder
+FROM node:22.19.0-bullseye AS builder
 WORKDIR /app
 
 COPY package*.json ./
@@ -8,7 +8,7 @@ COPY . .
 RUN npm run build
 
 # production image
-FROM node:22.19.0-bullseye-slim as runtime
+FROM node:22.19.0-bullseye-slim AS runtime
 WORKDIR /app
 ENV NODE_ENV=production
 

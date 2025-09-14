@@ -14,7 +14,7 @@ services:
     networks:
       - reservation-net
     healthcheck:
-      test: CMD-SHELL "mongo --eval 'db.adminCommand(\"ping\")' || exit 1"
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -29,6 +29,7 @@ services:
     env_file:
       - ./backend/.env
     environment:
+      - MONGO_URI=mongodb://reservation-mongo:27017/reservation
       - NODE_ENV=production
     depends_on:
       mongo:
