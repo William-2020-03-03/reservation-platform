@@ -1,0 +1,21 @@
+
+docker compose up --build
+
+
+docker compose up -d
+docker compose down -v
+
+
+
+docker system prune -a
+
+
+
+
+docker compose stop reservation-mongo
+docker rm reservation-mongo
+docker compose up -d reservation-mongo
+docker compose build reservation-backend
+
+docker compose stop
+docker compose start (up)
