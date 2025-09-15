@@ -1,0 +1,31 @@
+
+docker compose up --build
+
+docker compose up -d
+docker compose down -v
+
+
+docker system prune -a
+
+
+docker compose stop reservation-mongo
+docker rm reservation-mongo
+docker compose up -d reservation-mongo
+docker compose build reservation-backend
+
+docker compose stop
+docker compose start (up)
+
+
+
+docker tag reservation-platform-backend:latest william20220828/reservation-platform-backend:2025.09.15
+docker tag reservation-platform-frontend-builder:latest william20220828/reservation-platform-frontend-builder:2025.09.15
+docker tag reservation-platform-nginx:latest william20220828/reservation-platform-nginx:2025.09.15
+
+docker push william20220828/reservation-platform-backend:2025.09.15
+docker push william20220828/reservation-platform-frontend-builder:2025.09.15
+docker push william20220828/reservation-platform-nginx:2025.09.15
+
+docker pull william20220828/reservation-platform-backend:2025.09.15
+docker pull william20220828/reservation-platform-frontend-builder:2025.09.15
+docker pull william20220828/reservation-platform-nginx:2025.09.15

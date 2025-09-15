@@ -47,7 +47,7 @@ services:
     command: "true" 
 
   nginx:   
-    image: william20220828/reservation-nginx:2025.09.15
+    image: william20220828/reservation-platform-nginx:2025.09.15
     container_name: reservation-nginx
     restart: unless-stopped
     depends_on:
