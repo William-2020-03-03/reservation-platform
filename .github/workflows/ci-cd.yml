@@ -46,7 +46,7 @@ jobs:
           docker build -t william20220828/reservation-platform-nginx:latest ./nginx
           docker push william20220828/reservation-platform-nginx:latest
 
-      # Run tests (optinal)
+      # Run tests (is optinal)
       # - name: Run tests
       #   run: |
       #     docker run william20220828/reservation-platform-backend:latest npm test
