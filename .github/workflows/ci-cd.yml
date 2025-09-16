@@ -35,10 +35,10 @@ jobs:
           docker push william20220828/reservation-platform-backend:latest
 
       # build and push ui image
-      - name: Build and push ui image
+      - name: Build and push frontend-builder image
         run: |
-          docker build -t william20220828/reservation-platform-ui:latest ./frontend/ui
-          docker push william20220828/reservation-platform-ui:latest
+          docker build -t william20220828/reservation-platform-frontend-builder:latest ./frontend/ui
+          docker push william20220828/reservation-platform-frontend-builder:latest
 
       # build and push nginx image
       - name: Build and push nginx image
