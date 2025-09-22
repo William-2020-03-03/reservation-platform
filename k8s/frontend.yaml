@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-builder
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-builder
+  template:
+    metadata:
+      labels:
+        app: frontend-builder
+    spec:
+      containers:
+        - name: frontend-builder
+          image: william20220828/reservation-platform-frontend-builder:latest
+          command: ["npm", "run", "build"]
+          volumeMounts:
+            - name: shared-ui-volume
+              mountPath: /app/dist
+      volumes:
+        - name: shared-ui-volume
+          persistentVolumeClaim:
+            claimName: shared-ui-pvc
